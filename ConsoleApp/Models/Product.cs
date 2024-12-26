@@ -3,88 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
-//class product
-//3 functions
-//first function takes name
-//second function takes name and price
-//third function takes name, price and quantity
-//print the values in the main function
-
-
-
-
-
-
 namespace ConsoleApp.Models
 {
     public class Product
     {
+        // declaring a list of products
+        public List<Product> products = new List<Product>();
+        ///////////////////////////----Prop---//////////////////////////////////////////
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Quantity{ get;  set; }
+        ///////////////////////////----name function---//////////////////////////////////////////
 
-
-
-        private string name;
-        private double price;
-        private int quantity;
-
-
-        private List<Product> products = new List<Product>();
-
-
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public double Price
-        {
-            get { return price; }
-            set { price = value; }
-        }
-
-
-        public int Quantity
-        {
-            get { return quantity; }
-            set { quantity = value; }
-        }
-
-
-        public void PrintName(string name)
+        public void info(string name)
         {
             Console.WriteLine("Name: " + name);
         }
+        ///////////////////////////----name, price function---//////////////////////////////////////////
 
-        public void PrintNameAndPrice(string name, double price)
+        public void info(string name, double price)
         {
             Console.WriteLine("Name: " + name + " ,Price: " + price);
         }
 
+        ///////////////////////////----name, price, quantity function---//////////////////////////////////////////
 
-        public void PrintAll(string name, double price, int quantity)
+        public void info(string name, double price, int quantity)
         {
             Console.WriteLine("Name: " + name + " ,Price: " + price + " ,Quantity: " + quantity + " ,Total price: " + (quantity * price));
 
         }
-
+        ///////////////////////////----addin a list of products---//////////////////////////////////////////
 
         public void AddProduct(string name, double price, int quantity)
         {
             products.Add(new Product { Name = name, Price = price, Quantity = quantity });
-
-
-
-                 }
-
-
-        public void PrintAllProducts()
+         }
+        ///////////////////////////----Printing all products---//////////////////////////////////////////
+        public void AllProducts()
         {
             foreach (var x in products)
             {
-                Console.WriteLine("Name: " + x.name + " ,Price: " + x.price + " ,Quantity: " + x.quantity + " ,Total price: " + (x.quantity * x.price));
+                Console.WriteLine("Name: " + x.Name + " ,Price: " + x.Price + " ,Quantity: " + x.Quantity + " ,Total price: " + (x.Quantity * x.Price));
             }
         }
     }
